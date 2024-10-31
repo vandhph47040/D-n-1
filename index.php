@@ -129,7 +129,7 @@ if (isset($_GET['act'])) {
 
         case "add_cart":
             if (isset($_POST['btn_add'])) {
-                $color_id = $_POST['color_id'];
+                // $color_id = $_POST['color_id'];
                 $quantity = $_POST['quantity'];
                 $price_sale = $_POST['price_sale'];
                 $product_id = $_POST['product_id'];
@@ -140,7 +140,7 @@ if (isset($_GET['act'])) {
                         'product_image' => $product['product_image'],
                         'product_price' => $product['product_price'],
                         'price_sale' => $price_sale,
-                        'color_id' => $color_id,
+                        // 'color_id' => $color_id,
                         'quantity' => $quantity
                     ];
 
@@ -236,11 +236,16 @@ if (isset($_GET['act'])) {
                 $check_username = check_username($user);
                 if (!$user == $check_username) {
                     insert_account($user, $password, $phone, $email, $address);
-                    $thongbao = ' <span style="color:red; margin-right: 10px;">Đăng ký thành công</span>
-                                            <a style="color:white; margin-left: 10px;" href="index.php?act=dangnhap">Nhấn để đăng nhập</a>';
+                    $thongbao = '<div class=" alert-success" role="alert">
+                                    Đăng ký thành công! 
+                                    <a href="index.php?act=dangnhap" class="alert-link">Nhấn để đăng nhập</a>
+                                 </div>';
                 } else {
-                    $thongbao = '<span style="color:red; margin-right: 10px;">Tên tài khoản đã tồn tại!</span>';
+                    $thongbao = '<div class="alert alert-danger" role="alert">
+                                    Tên tài khoản đã tồn tại!
+                                 </div>';
                 }
+                
             }
             include "client/user/dangky.php";
             break;

@@ -53,6 +53,7 @@
             if ($product['status'] != 'Inactive') {
         ?>
                 <div class="col-md-3 mb-4"> <!-- Thay đổi ở đây -->
+                    <a href="index.php?act=chitietsanpham&product_id=<?php echo $product['product_id'] ?>">
                     <div class="card product-card h-100">
                         <img src="<?php echo $product_img ?>" class="card-img-top" alt="Product 1">
                         <div class="card-body text-center">
@@ -61,6 +62,7 @@
                             <button class="btn btn-primary">Thêm vào giỏ hàng</button>
                         </div>
                     </div>
+                    </a>
                 </div>
             <?php 
             } 

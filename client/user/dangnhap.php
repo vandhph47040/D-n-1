@@ -1,98 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Đăng Nhập</title>
-    <link href="dist/css/style.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Nhập - Trang Thương Mại Điện Tử Cao Cấp</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <style>
-        .auth-box {
-            width: 100%;
-            max-width: 400px; 
-            padding: 20px;
-            margin: 0 auto;
-        }
+    .login-container {
+        max-width: 400px;
+        margin: 50px auto;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
 
-        .alert {
-            width: 100%;
-            max-width: 400px;
-            margin: 0 auto 15px auto;
-        }
-    </style>
+    .login-title {
+        color: #f15a29;
+    }
+
+    .login-button {
+        background-color: #f15a29;
+        border: none;
+    }
+
+    .login-button:hover {
+        background-color: #e55337;
+    }
+
+    .social-login a {
+        margin-right: 10px;
+    }
+</style>
+
 <body>
-    <div class="main-wrapper">
-        <div class="auth-wrapper d-flex no-block justify-content-center align-items-center bg-dark" style="height:100vh">
-            <div class="auth-box bg-dark border-secondary">
-                <div id="loginform">
-                    <div class="text-center p-t-20 p-b-20">
-                        <h3 style="color:white;">Đăng Nhập</h3>
-                    </div>
-                    <?php if (isset($thongbao) && $thongbao != ""): ?>
-                        <div class="alert alert-danger">
-                            <?php echo $thongbao; ?>
-                        </div>
-                    <?php endif; ?>
 
-                    <!-- Form -->
-                    <form class="form-horizontal m-t-20" method="POST" id="loginform" action="index.php?act=dangnhap">
-                        <div class="row p-b-30">
-                            <div class="col-12">
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text bg-success text-white" id="basic-addon1">
-                                            <i class="ti-user"></i>
-                                        </span>
-                                    </div>
-                                    <input type="text" name="user" class="form-control form-control-lg"
-                                           placeholder="Tên Tài Khoản" aria-label="Username" aria-describedby="basic-addon1" required="">
-                                </div>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text bg-warning text-white" id="basic-addon2">
-                                            <i class="ti-pencil"></i>
-                                        </span>
-                                    </div>
-                                    <input type="password" name="pass" class="form-control form-control-lg"
-                                           placeholder="Mật Khẩu" aria-label="Password" aria-describedby="basic-addon2" required="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row border-top border-secondary">
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <div style="margin-top: 16px" class="p-t-20">
-                                        <a href="index.php?act=laylaimk">
-                                            <button class="btn btn-info" id="to-recover" type="button">
-                                                <i class="fa fa-lock m-r-5"></i> Quên Mật Khẩu?
-                                            </button>
-                                        </a>
-                                        <input name="dangnhap" value="Đăng Nhập" class="btn btn-success float-right" type="submit">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="index.php" class="btn btn-danger btn-rounded waves-effect waves-light m-b-40">
-                            Back to home
-                        </a>
-                    </form>
+    <div class="container">
+        <div class="login-container bg-light">
+            <h2 class="text-center login-title mb-4">Đăng Nhập</h2>
+            <?php if (isset($thongbao) && $thongbao != ""): ?>
+                <div class="alert alert-danger">
+                    <?php echo $thongbao; ?>
                 </div>
-            </div>
+            <?php endif; ?>
+
+            <form class="form-horizontal m-t-20" method="POST" id="loginform" action="index.php?act=dangnhap">
+                <div class="mb-3">
+                    <label for="email" class="form-label">Tên Tài Khoản</label>
+                    <input type="text" name="user" class="form-control" id="email" placeholder="Nhập tên tài khoản" required>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Mật khẩu</label>
+                    <input type="password" name="pass" class="form-control" id="password" placeholder="Nhập mật khẩu" required>
+                </div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="remember">
+                    <label class="form-check-label" for="remember">Ghi nhớ đăng nhập</label>
+                </div>
+                 <input name="dangnhap" value="Đăng Nhập" class="btn btn-warning w-100 login-button text-white" type="submit">
+               
+                <a href="index.php" class="btn btn-outline-secondary w-100 mt-3 fw-bold">Quay lại trang chủ</a>
+                <p class="text-center mt-3">Hoặc đăng nhập với</p>
+                <div class="text-center social-login">
+                    <a href="#" class="btn btn-outline-primary"><i class="fab fa-facebook-f"></i> Facebook</a>
+                    <a href="#" class="btn btn-outline-danger"><i class="fab fa-google"></i> Google</a>
+                </div>
+                <p class="text-center mt-3">Chưa có tài khoản? <a href="./sign.html">Đăng ký ngay</a></p>
+            </form>
         </div>
     </div>
-    <script src="assets/libs/jquery/dist/jquery.min.js"></script>
-    <script src="assets/libs/popper.js/dist/umd/popper.min.js"></script>
-    <script src="assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script>
-        $('[data-toggle="tooltip"]').tooltip();
-        $(".preloader").fadeOut();
-        $('#to-recover').on("click", function () {
-            $("#loginform").slideUp();
-            $("#recoverform").fadeIn();
-        });
-        $('#to-login').click(function () {
-            $("#recoverform").hide();
-            $("#loginform").fadeIn();
-        });
-    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
+</html>

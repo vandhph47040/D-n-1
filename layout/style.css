@@ -73,6 +73,56 @@ footer a:hover {
     min-width: 80px;
 }
 
+/* login */
+
+.login-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.login-title {
+    color: #f15a29;
+}
+.login-button {
+    background-color: #f15a29;
+    border: none;
+}
+.login-button:hover {
+    background-color: #e55337;
+}
+.social-login a {
+    margin-right: 10px;
+}
+
+/* sign in */
+
+.register-container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.register-title {
+    color: #f15a29;
+}
+.register-button {
+    background-color: #f15a29;
+    border: none;
+}
+.register-button:hover {
+    background-color: #f15a29;
+}
+.social-login a {
+    margin-right: 10px;
+}
+
+
+a {
+    text-decoration: none; /* Bỏ gạch chân cho tất cả các thẻ a */
+}
 
 
 
